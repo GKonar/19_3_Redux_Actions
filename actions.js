@@ -4,12 +4,50 @@ import uuid from uuid;
 
 const ADD_COMMENT = 'ADD_COMMENT';
 const EDIT_COMMENT = 'EDIT_COMMENT';
-const DELETE_COMMENT = 'DELETE_COMMENT';
+const REMOVE_COMMENT = 'DELETE_COMMENT';
 const THUMB_UP_COMMENT = 'THUMB_UP_COMMENT';
 const THUMB_DOWN_COMMENT = 'THUMB_DOWN_COMMENT';
 
 // KREATORY AKCJI
 
+const addComment = text => {
+	return {
+		type: ADD_COMMENT,
+        text,
+        id: uuid.v4() // unikalne id komentarza
+	}
+}
+
+const editComment = (text, id) => {
+	return {
+		type: EDIT_COMMENT,
+		text,
+		id: id // id komentarza do edycji
+	}
+}
+
+const deleteComment = id => {
+	return {
+		type: DELETE_COMMENT,
+		id: id //id przekazane jako argument
+	}
+}
+
+const thumbUpComment = id => {
+	return {
+		type: THUMB_UP_COMMENT,
+		id: id //id przekazane jako argument
+	}
+}
+
+const thumbDownComment = id => {
+	return {
+		type: THUMB_DOWN_COMMENT,
+		id: id //id przekazane jako argument
+	}
+}
+
+/*
 function addComment(text) { // czy payload jest okay?
     return {
         type: ADD_COMMENT,
@@ -37,68 +75,11 @@ function deleteComment(id) {
 
 function thumbUpComment(id) {
 	type: THUMB_UP_COMMENT,
-	payload: {
-		function thumbUp();
-	}
 	id: id,
 } 
 
 function thumbDownComment(id) {
 	type: THUMB_DOWN_COMMENT,
-	payload: {
-		function thumbDown();
-	}
 	id: id,
 }
-
-//ES 6
-
-/*
-const addComment = text => {
-	return {
-		type: ADD_COMMENT,
-        payload: {
-        	text: '1st comment',
-        	}
-        id: uuid.v4() // unikalne id komentarza
-	}
-}
-
-const editComment = (text, id) => {
-	return {
-		type: EDIT_COMMENT,
-		payload: {
-			text: 'edited comment',s
-		}
-		id: id // id komentarza do edycji
-	}
-}
-
-const deleteComment = id => {
-	return {
-		type: DELETE_COMMENT,
-		id: id //id przekazane jako argument
-	}
-}
-
-const thumbUpComment = id => {
-	return {
-		type: THUMB_UP_COMMENT,
-		payload: {
-			function thumbUp();
-		},
-		id: id //id przekazane jako argument
-	}
-}
-
-const thumbDownComment = id => {
-	return {
-		type: THUMB_DOWN_COMMENT,
-		payload: {
-			function thumbUp();
-		},
-		id: id //id przekazane jako argument
-	}
-}
-
 */
