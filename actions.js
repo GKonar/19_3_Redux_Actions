@@ -84,6 +84,9 @@ const deleteComment = id => {
 const thumbUpComment = id => {
 	return {
 		type: THUMB_UP_COMMENT,
+		payload: {
+			function thumbUp();
+		},
 		id: id //id przekazane jako argument
 	}
 }
@@ -91,6 +94,9 @@ const thumbUpComment = id => {
 const thumbDownComment = id => {
 	return {
 		type: THUMB_DOWN_COMMENT,
+		payload: {
+			function thumbUp();
+		},
 		id: id //id przekazane jako argument
 	}
 }
